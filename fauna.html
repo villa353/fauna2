@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Fauna de México</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f8e9;
+      padding: 20px;
+      margin: 0;
+    }
+
+    .login-box, .contenido {
+      max-width: 700px;
+      margin: 40px auto;
+      background-color: #ffffff;
+      border: 1px solid #c5e1a5;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1, h2 {
+      color: #33691e;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 16px;
+      border: 1px solid #c5e1a5;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: #689f38;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #558b2f;
+    }
+
+    .animal {
+      margin-bottom: 30px;
+    }
+
+    img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .error {
+      color: red;
+      font-weight: bold;
+    }
+
+    .contenido {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- LOGIN -->
+  <div class="login-box" id="loginBox">
+    <h1>Acceso</h1>
+    <p>Ingresa tus credenciales para ver el contenido sobre Fauna de México.</p>
+    <input type="text" id="usuario" placeholder="Usuario">
+    <input type="password" id="contrasena" placeholder="Contraseña">
+    <button onclick="verificarAcceso()">Ingresar</button>
+    <p id="mensaje" class="error"></p>
+  </div>
+
+  <!-- CONTENIDO -->
+  <div class="contenido" id="contenido">
+    <h1>Fauna de México</h1>
+
+    <div class="animal">
+      <h2>Ocelote</h2>
+      <img src="ocelote.jpg" alt="Ocelote">
+      <p>El ocelote es un felino nocturno que habita selvas y bosques tropicales. Es conocido por su hermoso pelaje manchado.</p>
+    </div>
+
+    <div class="animal">
+      <h2>Tortuga caguama</h2>
+      <img src="caguama.jpg" alt="Tortuga caguama">
+      <p>Esta tortuga marina anida en las costas del Pacífico mexicano. Es una especie en peligro de extinción.</p>
+    </div>
+
+    <div class="animal">
+      <h2>Guacamaya roja</h2>
+      <img src="guacamaya.jpg" alt="Guacamaya roja">
+      <p>La guacamaya roja es una de las aves más coloridas de México, y habita las selvas tropicales del sur del país.</p>
+    </div>
+  </div>
+
+  <script>
+    function verificarAcceso() {
+      const usuario = document.getElementById("usuario").value;
+      const contrasena = document.getElementById("contrasena").value;
+      const mensaje = document.getElementById("mensaje");
+
+      if (usuario === "CECYTEM" && contrasena === "123456") {
+        document.getElementById("loginBox").style.display = "none";
+        document.getElementById("contenido").style.display = "block";
+      } else {
+        mensaje.textContent = "Usuario o contraseña incorrectos.";
+      }
+    }
+  </script>
+
+</body>
+</html>
